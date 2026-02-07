@@ -1,0 +1,176 @@
+{
+  "success": true,
+  "data": {
+    "id": "71731167-5f50-4070-9f8d-71a8520162b4",
+    "created_at": "2025-11-18T17:23:24.072Z",
+    "updated_at": "2025-11-19T19:00:19.115Z",
+    "weekly_stats": {
+      "successfullOrders": {
+        "2025-11-12": [
+          { "company_id": "25", "company_name": "EMAZING DEALS LTD.", "order_count_last_24h_ist": "2545" },
+          { "company_id": "31", "company_name": "Geaan Electronics Pvt Ltd", "order_count_last_24h_ist": "165" },
+          { "company_id": "41", "company_name": "HELLO ART PVT LTD", "order_count_last_24h_ist": "37" },
+          { "company_id": "32", "company_name": "Uniseoul", "order_count_last_24h_ist": "13" },
+          { "company_id": "29", "company_name": "stylox-fashion ", "order_count_last_24h_ist": "13" },
+          { "company_id": "43", "company_name": "Jindal Lifestyle Ltd.", "order_count_last_24h_ist": "7" },
+          { "company_id": "49", "company_name": "TRENDIQ TECH PRIVATE LIMITED", "order_count_last_24h_ist": "6" },
+          { "company_id": "71", "company_name": "VIVOIZ HEALTHTECH PRIVATE LIMITED", "order_count_last_24h_ist": "4" },
+          { "company_id": "1", "company_name": "fynd wms", "order_count_last_24h_ist": "2" },
+          { "company_id": "82", "company_name": "Zivira Fashions", "order_count_last_24h_ist": "1" },
+          { "company_id": "22", "company_name": "Mink Retail Pvt Ltd", "order_count_last_24h_ist": "1" },
+          { "company_id": "36", "company_name": "Yuri Woori", "order_count_last_24h_ist": "1" }
+        ],
+        "2025-11-13": [
+          { "company_id": "25", "company_name": "EMAZING DEALS LTD.", "order_count_last_24h_ist": "2545" },
+          { "company_id": "31", "company_name": "Geaan Electronics Pvt Ltd", "order_count_last_24h_ist": "165" },
+          { "company_id": "41", "company_name": "HELLO ART PVT LTD", "order_count_last_24h_ist": "37" },
+          { "company_id": "32", "company_name": "Uniseoul", "order_count_last_24h_ist": "13" },
+          { "company_id": "29", "company_name": "stylox-fashion ", "order_count_last_24h_ist": "13" },
+          { "company_id": "43", "company_name": "Jindal Lifestyle Ltd.", "order_count_last_24h_ist": "7" },
+          { "company_id": "49", "company_name": "TRENDIQ TECH PRIVATE LIMITED", "order_count_last_24h_ist": "6" },
+          { "company_id": "71", "company_name": "VIVOIZ HEALTHTECH PRIVATE LIMITED", "order_count_last_24h_ist": "4" },
+          { "company_id": "1", "company_name": "fynd wms", "order_count_last_24h_ist": "2" },
+          { "company_id": "82", "company_name": "Zivira Fashions", "order_count_last_24h_ist": "1" },
+          { "company_id": "22", "company_name": "Mink Retail Pvt Ltd", "order_count_last_24h_ist": "1" },
+          { "company_id": "36", "company_name": "Yuri Woori", "order_count_last_24h_ist": "1" }
+        ],
+        "2025-11-14": [
+          { "company_id": "25", "company_name": "EMAZING DEALS LTD.", "order_count_last_24h_ist": "2545" },
+          { "company_id": "31", "company_name": "Geaan Electronics Pvt Ltd", "order_count_last_24h_ist": "165" },
+          { "company_id": "41", "company_name": "HELLO ART PVT LTD", "order_count_last_24h_ist": "37" },
+          { "company_id": "32", "company_name": "Uniseoul", "order_count_last_24h_ist": "13" },
+          { "company_id": "29", "company_name": "stylox-fashion ", "order_count_last_24h_ist": "13" },
+          { "company_id": "43", "company_name": "Jindal Lifestyle Ltd.", "order_count_last_24h_ist": "7" },
+          { "company_id": "49", "company_name": "TRENDIQ TECH PRIVATE LIMITED", "order_count_last_24h_ist": "6" },
+          { "company_id": "71", "company_name": "VIVOIZ HEALTHTECH PRIVATE LIMITED", "order_count_last_24h_ist": "4" },
+          { "company_id": "1", "company_name": "fynd wms", "order_count_last_24h_ist": "2" },
+          { "company_id": "82", "company_name": "Zivira Fashions", "order_count_last_24h_ist": "1" },
+          { "company_id": "22", "company_name": "Mink Retail Pvt Ltd", "order_count_last_24h_ist": "1" },
+          { "company_id": "36", "company_name": "Yuri Woori", "order_count_last_24h_ist": "1" }
+        ],
+        "2025-11-15": [
+          { "company_id": "25", "company_name": "EMAZING DEALS LTD.", "order_count_last_24h_ist": "2545" },
+          { "company_id": "31", "company_name": "Geaan Electronics Pvt Ltd", "order_count_last_24h_ist": "165" },
+          { "company_id": "41", "company_name": "HELLO ART PVT LTD", "order_count_last_24h_ist": "37" },
+          { "company_id": "32", "company_name": "Uniseoul", "order_count_last_24h_ist": "13" },
+          { "company_id": "29", "company_name": "stylox-fashion ", "order_count_last_24h_ist": "13" },
+          { "company_id": "43", "company_name": "Jindal Lifestyle Ltd.", "order_count_last_24h_ist": "7" },
+          { "company_id": "49", "company_name": "TRENDIQ TECH PRIVATE LIMITED", "order_count_last_24h_ist": "6" },
+          { "company_id": "71", "company_name": "VIVOIZ HEALTHTECH PRIVATE LIMITED", "order_count_last_24h_ist": "4" },
+          { "company_id": "1", "company_name": "fynd wms", "order_count_last_24h_ist": "2" },
+          { "company_id": "82", "company_name": "Zivira Fashions", "order_count_last_24h_ist": "1" },
+          { "company_id": "22", "company_name": "Mink Retail Pvt Ltd", "order_count_last_24h_ist": "1" },
+          { "company_id": "36", "company_name": "Yuri Woori", "order_count_last_24h_ist": "1" }
+        ],
+        "2025-11-16": [
+          { "company_id": "25", "company_name": "EMAZING DEALS LTD.", "order_count_last_24h_ist": "2545" },
+          { "company_id": "31", "company_name": "Geaan Electronics Pvt Ltd", "order_count_last_24h_ist": "165" },
+          { "company_id": "41", "company_name": "HELLO ART PVT LTD", "order_count_last_24h_ist": "37" },
+          { "company_id": "32", "company_name": "Uniseoul", "order_count_last_24h_ist": "13" },
+          { "company_id": "29", "company_name": "stylox-fashion ", "order_count_last_24h_ist": "13" },
+          { "company_id": "43", "company_name": "Jindal Lifestyle Ltd.", "order_count_last_24h_ist": "7" },
+          { "company_id": "49", "company_name": "TRENDIQ TECH PRIVATE LIMITED", "order_count_last_24h_ist": "6" },
+          { "company_id": "71", "company_name": "VIVOIZ HEALTHTECH PRIVATE LIMITED", "order_count_last_24h_ist": "4" },
+          { "company_id": "1", "company_name": "fynd wms", "order_count_last_24h_ist": "2" },
+          { "company_id": "82", "company_name": "Zivira Fashions", "order_count_last_24h_ist": "1" },
+          { "company_id": "22", "company_name": "Mink Retail Pvt Ltd", "order_count_last_24h_ist": "1" },
+          { "company_id": "36", "company_name": "Yuri Woori", "order_count_last_24h_ist": "1" }
+        ],
+        "2025-11-17": [
+          { "company_id": "25", "company_name": "EMAZING DEALS LTD.", "order_count_last_24h_ist": "2545" },
+          { "company_id": "31", "company_name": "Geaan Electronics Pvt Ltd", "order_count_last_24h_ist": "165" },
+          { "company_id": "41", "company_name": "HELLO ART PVT LTD", "order_count_last_24h_ist": "37" },
+          { "company_id": "32", "company_name": "Uniseoul", "order_count_last_24h_ist": "13" },
+          { "company_id": "29", "company_name": "stylox-fashion ", "order_count_last_24h_ist": "13" },
+          { "company_id": "43", "company_name": "Jindal Lifestyle Ltd.", "order_count_last_24h_ist": "7" },
+          { "company_id": "49", "company_name": "TRENDIQ TECH PRIVATE LIMITED", "order_count_last_24h_ist": "6" },
+          { "company_id": "71", "company_name": "VIVOIZ HEALTHTECH PRIVATE LIMITED", "order_count_last_24h_ist": "4" },
+          { "company_id": "1", "company_name": "fynd wms", "order_count_last_24h_ist": "2" },
+          { "company_id": "82", "company_name": "Zivira Fashions", "order_count_last_24h_ist": "1" },
+          { "company_id": "22", "company_name": "Mink Retail Pvt Ltd", "order_count_last_24h_ist": "1" },
+          { "company_id": "36", "company_name": "Yuri Woori", "order_count_last_24h_ist": "1" }
+        ],
+        "2025-11-18": [
+          { "company_id": "25", "company_name": "EMAZING DEALS LTD.", "order_count_last_24h_ist": "2581" },
+          { "company_id": "31", "company_name": "Geaan Electronics Pvt Ltd", "order_count_last_24h_ist": "163" },
+          { "company_id": "41", "company_name": "HELLO ART PVT LTD", "order_count_last_24h_ist": "51" },
+          { "company_id": "49", "company_name": "TRENDIQ TECH PRIVATE LIMITED", "order_count_last_24h_ist": "24" },
+          { "company_id": "29", "company_name": "stylox-fashion ", "order_count_last_24h_ist": "12" },
+          { "company_id": "43", "company_name": "Jindal Lifestyle Ltd.", "order_count_last_24h_ist": "7" },
+          { "company_id": "1", "company_name": "fynd wms", "order_count_last_24h_ist": "6" },
+          { "company_id": "71", "company_name": "VIVOIZ HEALTHTECH PRIVATE LIMITED", "order_count_last_24h_ist": "6" },
+          { "company_id": "36", "company_name": "Yuri Woori", "order_count_last_24h_ist": "5" },
+          { "company_id": "22", "company_name": "Mink Retail Pvt Ltd", "order_count_last_24h_ist": "5" },
+          { "company_id": "32", "company_name": "Uniseoul", "order_count_last_24h_ist": "4" },
+          { "company_id": "84", "company_name": "MadRat 24 Labs", "order_count_last_24h_ist": "2" },
+          { "company_id": "82", "company_name": "Zivira Fashions", "order_count_last_24h_ist": "2" },
+          { "company_id": "80", "company_name": "Navtatva Fashions Private Limited", "order_count_last_24h_ist": "1" },
+          { "company_id": "57", "company_name": "Sales Partnership Commerce India Demo", "order_count_last_24h_ist": "1" },
+          { "company_id": "34", "company_name": "Ultrahuman", "order_count_last_24h_ist": "1" }
+        ]
+      },
+      "cancelledOrders": {
+        "2025-11-12": [
+          { "company_id": "25", "company_name": "EMAZING DEALS LTD.", "order_count_last_24h_ist": "249" },
+          { "company_id": "31", "company_name": "Geaan Electronics Pvt Ltd", "order_count_last_24h_ist": "18" },
+          { "company_id": "29", "company_name": "stylox-fashion ", "order_count_last_24h_ist": "6" },
+          { "company_id": "32", "company_name": "Uniseoul", "order_count_last_24h_ist": "1" },
+          { "company_id": "36", "company_name": "Yuri Woori", "order_count_last_24h_ist": "1" },
+          { "company_id": "43", "company_name": "Jindal Lifestyle Ltd.", "order_count_last_24h_ist": "1" }
+        ],
+        "2025-11-13": [
+          { "company_id": "25", "company_name": "EMAZING DEALS LTD.", "order_count_last_24h_ist": "249" },
+          { "company_id": "31", "company_name": "Geaan Electronics Pvt Ltd", "order_count_last_24h_ist": "18" },
+          { "company_id": "29", "company_name": "stylox-fashion ", "order_count_last_24h_ist": "6" },
+          { "company_id": "32", "company_name": "Uniseoul", "order_count_last_24h_ist": "1" },
+          { "company_id": "36", "company_name": "Yuri Woori", "order_count_last_24h_ist": "1" },
+          { "company_id": "43", "company_name": "Jindal Lifestyle Ltd.", "order_count_last_24h_ist": "1" }
+        ],
+        "2025-11-14": [
+          { "company_id": "25", "company_name": "EMAZING DEALS LTD.", "order_count_last_24h_ist": "249" },
+          { "company_id": "31", "company_name": "Geaan Electronics Pvt Ltd", "order_count_last_24h_ist": "18" },
+          { "company_id": "29", "company_name": "stylox-fashion ", "order_count_last_24h_ist": "6" },
+          { "company_id": "32", "company_name": "Uniseoul", "order_count_last_24h_ist": "1" },
+          { "company_id": "36", "company_name": "Yuri Woori", "order_count_last_24h_ist": "1" },
+          { "company_id": "43", "company_name": "Jindal Lifestyle Ltd.", "order_count_last_24h_ist": "1" }
+        ],
+        "2025-11-15": [
+          { "company_id": "25", "company_name": "EMAZING DEALS LTD.", "order_count_last_24h_ist": "249" },
+          { "company_id": "31", "company_name": "Geaan Electronics Pvt Ltd", "order_count_last_24h_ist": "18" },
+          { "company_id": "29", "company_name": "stylox-fashion ", "order_count_last_24h_ist": "6" },
+          { "company_id": "32", "company_name": "Uniseoul", "order_count_last_24h_ist": "1" },
+          { "company_id": "36", "company_name": "Yuri Woori", "order_count_last_24h_ist": "1" },
+          { "company_id": "43", "company_name": "Jindal Lifestyle Ltd.", "order_count_last_24h_ist": "1" }
+        ],
+        "2025-11-16": [
+          { "company_id": "25", "company_name": "EMAZING DEALS LTD.", "order_count_last_24h_ist": "249" },
+          { "company_id": "31", "company_name": "Geaan Electronics Pvt Ltd", "order_count_last_24h_ist": "18" },
+          { "company_id": "29", "company_name": "stylox-fashion ", "order_count_last_24h_ist": "6" },
+          { "company_id": "32", "company_name": "Uniseoul", "order_count_last_24h_ist": "1" },
+          { "company_id": "36", "company_name": "Yuri Woori", "order_count_last_24h_ist": "1" },
+          { "company_id": "43", "company_name": "Jindal Lifestyle Ltd.", "order_count_last_24h_ist": "1" }
+        ],
+        "2025-11-17": [
+          { "company_id": "25", "company_name": "EMAZING DEALS LTD.", "order_count_last_24h_ist": "249" },
+          { "company_id": "31", "company_name": "Geaan Electronics Pvt Ltd", "order_count_last_24h_ist": "18" },
+          { "company_id": "29", "company_name": "stylox-fashion ", "order_count_last_24h_ist": "6" },
+          { "company_id": "32", "company_name": "Uniseoul", "order_count_last_24h_ist": "1" },
+          { "company_id": "36", "company_name": "Yuri Woori", "order_count_last_24h_ist": "1" },
+          { "company_id": "43", "company_name": "Jindal Lifestyle Ltd.", "order_count_last_24h_ist": "1" }
+        ],
+        "2025-11-18": [
+          { "company_id": "25", "company_name": "EMAZING DEALS LTD.", "order_count_last_24h_ist": "321" },
+          { "company_id": "31", "company_name": "Geaan Electronics Pvt Ltd", "order_count_last_24h_ist": "9" },
+          { "company_id": "41", "company_name": "HELLO ART PVT LTD", "order_count_last_24h_ist": "2" },
+          { "company_id": "80", "company_name": "Navtatva Fashions Private Limited", "order_count_last_24h_ist": "1" },
+          { "company_id": "1", "company_name": "fynd wms", "order_count_last_24h_ist": "1" },
+          { "company_id": "82", "company_name": "Zivira Fashions", "order_count_last_24h_ist": "1" },
+          { "company_id": "29", "company_name": "stylox-fashion ", "order_count_last_24h_ist": "1" },
+          { "company_id": "71", "company_name": "VIVOIZ HEALTHTECH PRIVATE LIMITED", "order_count_last_24h_ist": "1" }
+        ]
+      }
+    },
+    "hourly_stats": {},
+    "cluster": "wms"
+  }
+}

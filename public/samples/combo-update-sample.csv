@@ -1,0 +1,2 @@
+Combo ArticleCode,Location,master_store_code,SKU Code,ArticleDescription,MRP,Combo MRP,DiscountOn MRP,ComboOffer,ESP
+SAMPLE_ARTICLE,STORE_1,MS1,SKU123,Sample Article,1000,900,10%,OFFER1,800
