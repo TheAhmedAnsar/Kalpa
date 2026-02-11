@@ -35,20 +35,14 @@ const formatCreatedAt = (iso) => {
 };
 
 const OPERATION_OPTIONS = [
-  { label: "PAYTM", value: "PAYTM" },
-  { label: "PHONEPE", value: "PHONEPE" },
-  { label: "GPAY", value: "GPAY" },
+  { label: "PineLabs", value: "PineLabs" },
+  { label: "Paytm MID", value: "Paytm MID" },
+  { label: "Paytm TID", value: "Paytm TID" },
 ];
 
 const DB_OPTIONS = [
-  { label: "PAYTM", value: "PAYTM" },
-  { label: "PHONEPE", value: "PHONEPE" },
-  { label: "GPAY", value: "GPAY" },
-  { label: "BILLDESK", value: "BILLDESK" },
-  { label: "PAYTM", value: "PAYTM" },
-  { label: "PHONEPE", value: "PHONEPE" },
-  { label: "GPAY", value: "GPAY" },
-  { label: "BILLDESK", value: "BILLDESK" },
+  { label: "PineLabs", value: "PineLabs" },
+  { label: "Paytm MID or TID", value: "Paytm MID&TID" },
 ];
 
 const EdcDevice = () => {
@@ -143,7 +137,7 @@ const EdcDevice = () => {
     <PageLayout
       title={
         <span className="inline-flex items-center gap-2">
-          <DevicesOtherOutlinedIcon sx={{ fontSize: 28 }} />
+          {/* <DevicesOtherOutlinedIcon sx={{ fontSize: 28 }} /> */}
           EDC Device Updates
         </span>
       }
@@ -172,90 +166,81 @@ const EdcDevice = () => {
         </div>
       )}
 
-      {/* Three cards */}
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
-        {/* Instructions */}
+      {/* Two sections */}
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+        {/* Sample Download */}
         <div className="rounded-xl border border-dashed border-gray-300 bg-white p-5 shadow-sm dark:border-gray-600 dark:bg-gray-800/50">
           <h3 className="mb-3 text-sm font-semibold text-gray-900 dark:text-white">
-            Instructions
+            Download Sample File
           </h3>
-          <p className="mb-2 text-sm text-gray-700 dark:text-gray-300">
-            Keep the header in the file and each row will represent a unique
-            Device ID.
+          <p className="mb-4 text-sm text-gray-700 dark:text-gray-300">
+            Use the sample template to format your upload correctly.
           </p>
-          <p className="mb-3 text-sm text-gray-700 dark:text-gray-300">
-            In case of bulk updates, ensure the version exists in the
-            repository before initiating.
-          </p>
-          <ul className="list-inside list-disc space-y-1 text-sm text-gray-700 dark:text-gray-300">
-            <li>Valid Serial Number format: SN-XXXX-XXXX</li>
-            <li>File must match the operation&apos;s required extension</li>
-            <li>Required fields: DeviceID, Action, Params</li>
-          </ul>
-        </div>
-
-        {/* Select Operation */}
-        <div className="flex flex-col rounded-xl border border-dashed border-gray-300 bg-white p-5 shadow-sm dark:border-gray-600 dark:bg-gray-800/50">
-          <h3 className="mb-3 text-sm font-semibold text-gray-900 dark:text-white">
-            Select Operation
-          </h3>
-          <label className="mb-2 block text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400">
-            Operation Type
-          </label>
-          <CustomDropdown
-            options={OPERATION_OPTIONS}
-            value={operationType}
-            onChange={(opt) => setOperationType(opt || OPERATION_OPTIONS[0])}
-            searchable={false}
-            placeholder="Select"
-            buttonClassName="w-full border border-gray-300 bg-white dark:border-gray-600 dark:bg-gray-800"
-          />
           <button
             type="button"
             onClick={handleSampleDownload}
-            className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-md border border-blue-600 bg-white px-4 py-2 text-sm font-semibold text-blue-700 transition hover:bg-blue-50 dark:border-blue-500 dark:bg-gray-800 dark:text-blue-300 dark:hover:bg-blue-900/30"
+            className="inline-flex w-full items-center justify-center gap-2 rounded-md border border-blue-600 bg-white px-4 py-2 text-sm font-semibold text-blue-700 transition hover:bg-blue-50 dark:border-blue-500 dark:bg-gray-800 dark:text-blue-300 dark:hover:bg-blue-900/30"
           >
             <DownloadOutlinedIcon fontSize="small" />
             Download Sample File
           </button>
         </div>
 
-        {/* Upload File */}
-        <div className="flex flex-col rounded-xl border border-dashed border-gray-300 bg-white p-5 shadow-sm dark:border-gray-600 dark:bg-gray-800/50">
-          <h3 className="mb-3 text-sm font-semibold text-gray-900 dark:text-white">
-            Upload File
-          </h3>
-          <div
-            onDragOver={handleDragOver}
-            onDragLeave={handleDragLeave}
-            onDrop={handleDrop}
-            className={`mb-4 flex flex-1 flex-col items-center justify-center rounded-lg border-2 border-dashed py-8 transition-colors ${
-              isDragging
-                ? "border-blue-500 bg-blue-50/50 dark:bg-blue-900/20"
-                : "border-gray-300 dark:border-gray-600"
-            }`}
-          >
-            <div className="mb-2 flex h-14 w-14 items-center justify-center rounded-full bg-blue-100 text-blue-600 dark:bg-blue-900/40 dark:text-blue-400">
-              <CloudUploadOutlinedIcon sx={{ fontSize: 28 }} />
-            </div>
-            <p className="text-sm font-medium text-gray-700 dark:text-gray-200">
-              Drag and drop file here
-            </p>
-            <label className="mt-4 inline-flex cursor-pointer items-center justify-center gap-2 rounded-md border border-blue-600 bg-white px-4 py-2 text-sm font-semibold text-blue-700 transition hover:bg-blue-50 dark:border-blue-500 dark:bg-gray-800 dark:text-blue-300 dark:hover:bg-blue-900/30">
-              <UploadOutlinedIcon fontSize="small" />
-              Upload
-              <input
-                type="file"
-                accept=".csv,.json"
-                className="hidden"
-                onChange={handleFileSelect}
-              />
+        {/* Operation + Upload */}
+        <div className="flex flex-col gap-4 rounded-xl border border-dashed border-gray-300 bg-white p-5 shadow-sm dark:border-gray-600 dark:bg-gray-800/50">
+          <div>
+            <h3 className="mb-3 text-sm font-semibold text-gray-900 dark:text-white">
+              Select Operation
+            </h3>
+            <label className="mb-2 block text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400">
+              Operation Type
             </label>
-            {uploadFile && (
-              <p className="mt-2 text-xs text-gray-500 dark:text-gray-400">
-                {uploadFile.name}
+            <CustomDropdown
+              options={OPERATION_OPTIONS}
+              value={operationType}
+              onChange={(opt) => setOperationType(opt || OPERATION_OPTIONS[0])}
+              searchable={false}
+              placeholder="Select"
+              buttonClassName="w-full border border-gray-300 bg-white dark:border-gray-600 dark:bg-gray-800"
+            />
+          </div>
+
+          <div>
+            <h3 className="mb-3 text-sm font-semibold text-gray-900 dark:text-white">
+              Select File to Upload
+            </h3>
+            <div
+              onDragOver={handleDragOver}
+              onDragLeave={handleDragLeave}
+              onDrop={handleDrop}
+              className={`flex flex-1 flex-col items-center justify-center rounded-lg border-2 border-dashed py-8 transition-colors ${
+                isDragging
+                  ? "border-blue-500 bg-blue-50/50 dark:bg-blue-900/20"
+                  : "border-gray-300 dark:border-gray-600"
+              }`}
+            >
+              <div className="mb-2 flex h-14 w-14 items-center justify-center rounded-full bg-blue-100 text-blue-600 dark:bg-blue-900/40 dark:text-blue-400">
+                <CloudUploadOutlinedIcon sx={{ fontSize: 28 }} />
+              </div>
+              <p className="text-sm font-medium text-gray-700 dark:text-gray-200">
+                Drag and drop file here
               </p>
-            )}
+              <label className="mt-4 inline-flex cursor-pointer items-center justify-center gap-2 rounded-md border border-blue-600 bg-white px-4 py-2 text-sm font-semibold text-blue-700 transition hover:bg-blue-50 dark:border-blue-500 dark:bg-gray-800 dark:text-blue-300 dark:hover:bg-blue-900/30">
+                <UploadOutlinedIcon fontSize="small" />
+                Upload
+                <input
+                  type="file"
+                  accept=".csv,.json"
+                  className="hidden"
+                  onChange={handleFileSelect}
+                />
+              </label>
+              {uploadFile && (
+                <p className="mt-2 text-xs text-gray-500 dark:text-gray-400">
+                  {uploadFile.name}
+                </p>
+              )}
+            </div>
           </div>
         </div>
       </div>
@@ -291,7 +276,7 @@ const EdcDevice = () => {
             <textarea
               value={storeIds}
               onChange={(e) => setStoreIds(e.target.value)}
-              placeholder="Comma separated store IDs or one per line..."
+              placeholder="Comma separated store IDs"
               rows={3}
               className="w-full resize-y rounded-md border border-gray-300 bg-white px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-800 dark:text-white"
             />
