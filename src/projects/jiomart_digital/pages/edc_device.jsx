@@ -2,6 +2,7 @@ import React, { useCallback, useMemo, useState } from "react";
 import PageLayout from "../../../components/PageLayout";
 import CustomDropdown from "../../../components/CustomDropdown";
 import HistoryTable from "../../../components/HistoryTable";
+import CustomModal from "../../../components/CustomModal";
 import CloudUploadOutlinedIcon from "@mui/icons-material/CloudUploadOutlined";
 import DownloadOutlinedIcon from "@mui/icons-material/DownloadOutlined";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
@@ -35,25 +36,90 @@ const formatCreatedAt = (iso) => {
 };
 
 const OPERATION_OPTIONS = [
-  { label: "PAYTM", value: "PAYTM" },
-  { label: "PHONEPE", value: "PHONEPE" },
-  { label: "GPAY", value: "GPAY" },
+  { label: "EDC PINELABS", value: "PINELABS" },
+  { label: "PAYTM MID", value: "PAYTMMID" },
+  { label: "PAYTM TID", value: "PAYTMTID" },
 ];
 
+const SAMPLE_FILE_CONFIG = {
+  PINELABS: {
+    filename: "edc-pinelabs-sample.csv",
+    headers: ["store_id"],
+    rows: [["T0DS"]],
+  },
+  PAYTMMID: {
+    filename: "paytm-mid-sample.csv",
+    headers: ["store_id", "MID"],
+    rows: [["T0DS", "JIOMar362"]],
+  },
+  PAYTMTID: {
+    filename: "paytm-tid-sample.csv",
+    headers: ["store_id", "TID"],
+    rows: [["T0DS", "11229783"]],
+  },
+};
+
+const parseCsvPreviewData = async (file) => {
+  const text = await file.text();
+  const lines = text
+    .split(/\r?\n/)
+    .map((line) => line.trim())
+    .filter(Boolean);
+  if (!lines.length) return { headers: [], rows: [] };
+
+  const headers = lines[0].split(",").map((part) => part.trim());
+  const rows = lines.slice(1).map((line, rowIndex) => {
+    const cells = line.split(",").map((part) => part.trim());
+    const row = {};
+    headers.forEach((header, index) => {
+      row[header] = cells[index] ?? "";
+    });
+    if (!headers.length) {
+      row.Row = `Row ${rowIndex + 1}`;
+      row.Value = line;
+    }
+    return row;
+  });
+
+  return { headers, rows };
+};
+
+const parseJsonPreviewData = async (file) => {
+  const text = await file.text();
+  const parsed = JSON.parse(text);
+  const items = Array.isArray(parsed) ? parsed : [parsed];
+  if (!items.length) return { headers: [], rows: [] };
+
+  const normalizedRows = items.map((item, index) => {
+    if (item && typeof item === "object" && !Array.isArray(item)) {
+      return item;
+    }
+    return { value: String(item ?? ""), index: index + 1 };
+  });
+
+  const headers = Array.from(
+    new Set(normalizedRows.flatMap((row) => Object.keys(row))),
+  );
+  return { headers, rows: normalizedRows };
+};
+
 const DB_OPTIONS = [
-  { label: "PAYTM", value: "PAYTM" },
-  { label: "PHONEPE", value: "PHONEPE" },
-  { label: "GPAY", value: "GPAY" },
-  { label: "BILLDESK", value: "BILLDESK" },
-  { label: "PAYTM", value: "PAYTM" },
-  { label: "PHONEPE", value: "PHONEPE" },
-  { label: "GPAY", value: "GPAY" },
-  { label: "BILLDESK", value: "BILLDESK" },
+  { label: "PineLabs", value: "PINELABS" },
+  { label: "PAYTM MID or TID", value: "PAYTM" },
+  // { label: "GPAY", value: "GPAY" },
+  // { label: "BILLDESK", value: "BILLDESK" },
+  // { label: "PAYTM", value: "PAYTM" },
+  // { label: "PHONEPE", value: "PHONEPE" },
+  // { label: "GPAY", value: "GPAY" },
+  // { label: "BILLDESK", value: "BILLDESK" },
 ];
 
 const EdcDevice = () => {
   const [tipDismissed, setTipDismissed] = useState(false);
   const [operationType, setOperationType] = useState(OPERATION_OPTIONS[0]);
+  const [uploadOperationType, setUploadOperationType] = useState(
+    OPERATION_OPTIONS[0],
+  );
   const [selectedDb, setSelectedDb] = useState(DB_OPTIONS[0]);
   const [storeIds, setStoreIds] = useState("");
   const [uploadFile, setUploadFile] = useState(null);
@@ -61,6 +127,10 @@ const EdcDevice = () => {
   const [historyRows, setHistoryRows] = useState(SAMPLE_JOBS);
   const [historyLoading, setHistoryLoading] = useState(false);
   const [historyRefreshKey, setHistoryRefreshKey] = useState(0);
+  const [filePreviewOpen, setFilePreviewOpen] = useState(false);
+  const [filePreviewHeaders, setFilePreviewHeaders] = useState([]);
+  const [filePreviewRows, setFilePreviewRows] = useState([]);
+  const [previewError, setPreviewError] = useState("");
 
   const fetchHistory = useCallback(async () => {
     setHistoryLoading(true);
@@ -115,28 +185,63 @@ const EdcDevice = () => {
     e.stopPropagation();
     setIsDragging(false);
   };
-  const handleDrop = (e) => {
+  const openFilePreviewModal = async (file) => {
+    try {
+      setUploadOperationType(operationType || OPERATION_OPTIONS[0]);
+      const fileName = String(file?.name || "").toLowerCase();
+      const parsed = fileName.endsWith(".json")
+        ? await parseJsonPreviewData(file)
+        : await parseCsvPreviewData(file);
+      setFilePreviewHeaders(parsed.headers || []);
+      setFilePreviewRows(parsed.rows || []);
+      setPreviewError("");
+      setFilePreviewOpen(true);
+    } catch (error) {
+      console.error("Failed to parse uploaded file for preview:", error);
+      setFilePreviewHeaders([]);
+      setFilePreviewRows([]);
+      setPreviewError(error?.message || "Failed to parse uploaded file.");
+      setFilePreviewOpen(true);
+    }
+  };
+
+  const handleDrop = async (e) => {
     e.preventDefault();
     e.stopPropagation();
     setIsDragging(false);
     const file = e.dataTransfer?.files?.[0];
-    if (file) setUploadFile(file);
+    if (file) {
+      setUploadFile(file);
+      await openFilePreviewModal(file);
+    }
   };
-  const handleFileSelect = (e) => {
+  const handleFileSelect = async (e) => {
     const file = e.target.files?.[0];
-    if (file) setUploadFile(file);
+    if (file) {
+      setUploadFile(file);
+      await openFilePreviewModal(file);
+    }
   };
 
   const handleSampleDownload = () => {
-    const csv =
-      "DeviceID,Action,Params\nSN-1234-5678,update,version=1.0.0\nSN-8765-4321,update,version=1.0.0";
+    const selectedSample =
+      SAMPLE_FILE_CONFIG[operationType?.value] || SAMPLE_FILE_CONFIG.PINELABS;
+    const csvRows = [selectedSample.headers.join(",")].concat(
+      selectedSample.rows.map((row) => row.join(",")),
+    );
+    const csv = csvRows.join("\n");
     const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
     const url = URL.createObjectURL(blob);
     const link = document.createElement("a");
     link.href = url;
-    link.download = "edc-device-sample.csv";
+    link.download = selectedSample.filename;
     link.click();
     URL.revokeObjectURL(url);
+  };
+
+  const handleUploadFile = () => {
+    // Placeholder for API integration; closes preview after user confirms upload.
+    setFilePreviewOpen(false);
   };
 
   return (
@@ -216,8 +321,12 @@ const EdcDevice = () => {
             className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-md border border-blue-600 bg-white px-4 py-2 text-sm font-semibold text-blue-700 transition hover:bg-blue-50 dark:border-blue-500 dark:bg-gray-800 dark:text-blue-300 dark:hover:bg-blue-900/30"
           >
             <DownloadOutlinedIcon fontSize="small" />
-            Download Sample File
+            Download Selected Sample File
           </button>
+          <p className="mt-3 text-xs text-gray-600 dark:text-gray-400">
+            Sample formats: EDC PINELABS (`store_id`), PAYTM MID (`store_id`,
+            `MID`), PAYTM TID (`store_id`, `TID`).
+          </p>
         </div>
 
         {/* Upload File */}
@@ -243,18 +352,23 @@ const EdcDevice = () => {
             </p>
             <label className="mt-4 inline-flex cursor-pointer items-center justify-center gap-2 rounded-md border border-blue-600 bg-white px-4 py-2 text-sm font-semibold text-blue-700 transition hover:bg-blue-50 dark:border-blue-500 dark:bg-gray-800 dark:text-blue-300 dark:hover:bg-blue-900/30">
               <UploadOutlinedIcon fontSize="small" />
-              Upload
+              Select File to Upload
               <input
                 type="file"
                 accept=".csv,.json"
                 className="hidden"
+                onClick={(e) => {
+                  e.target.value = "";
+                }}
                 onChange={handleFileSelect}
               />
             </label>
             {uploadFile && (
-              <p className="mt-2 text-xs text-gray-500 dark:text-gray-400">
-                {uploadFile.name}
-              </p>
+              <div className="mt-2 w-full space-y-2">
+                <p className="text-xs text-gray-500 dark:text-gray-400">
+                  {uploadFile.name}
+                </p>
+              </div>
             )}
           </div>
         </div>
@@ -331,6 +445,109 @@ const EdcDevice = () => {
          Ahmed and team
         </span>
       </div>
+
+      <CustomModal
+        open={filePreviewOpen}
+        onClose={() => setFilePreviewOpen(false)}
+        size="lg"
+        isDark={false}
+      >
+        <div className="space-y-4 p-2">
+          <div>
+            <h3 className="text-lg font-semibold text-blue-700">File Preview</h3>
+            <p className="text-xs text-gray-500">
+              {uploadFile?.name || "Uploaded file"}
+            </p>
+          </div>
+
+          <div className="space-y-2">
+            <label className="block text-xs font-semibold uppercase tracking-wide text-gray-500">
+              Operation to perform
+            </label>
+            <CustomDropdown
+              options={OPERATION_OPTIONS}
+              value={uploadOperationType}
+              onChange={(opt) =>
+                setUploadOperationType(opt || OPERATION_OPTIONS[0])
+              }
+              searchable={false}
+              placeholder="Select"
+              buttonClassName="w-full border border-gray-300 bg-white"
+            />
+          </div>
+
+          {previewError ? (
+            <div className="rounded-md border border-red-200 bg-red-50 px-3 py-2 text-sm text-red-700">
+              {previewError}
+            </div>
+          ) : (
+            <div className="max-h-[50vh] overflow-auto rounded-lg border border-gray-200">
+              <table className="min-w-full border-collapse text-left text-sm">
+                <thead className="sticky top-0 bg-gray-100">
+                  <tr>
+                    {(filePreviewHeaders.length ? filePreviewHeaders : ["data"]).map(
+                      (header) => (
+                        <th
+                          key={header}
+                          className="border-b border-gray-200 px-4 py-2 font-semibold text-gray-700"
+                        >
+                          {header}
+                        </th>
+                      ),
+                    )}
+                  </tr>
+                </thead>
+                <tbody>
+                  {filePreviewRows.length > 0 ? (
+                    filePreviewRows.map((row, rowIndex) => (
+                      <tr key={`row-${rowIndex}`}>
+                        {(filePreviewHeaders.length
+                          ? filePreviewHeaders
+                          : ["data"]
+                        ).map((header) => (
+                          <td
+                            key={`${rowIndex}-${header}`}
+                            className="border-b border-gray-100 px-4 py-2 text-gray-700"
+                          >
+                            {String(row[header] ?? "—")}
+                          </td>
+                        ))}
+                      </tr>
+                    ))
+                  ) : (
+                    <tr>
+                      <td
+                        colSpan={filePreviewHeaders.length || 1}
+                        className="px-4 py-6 text-center text-sm text-gray-500"
+                      >
+                        No data rows found in uploaded file.
+                      </td>
+                    </tr>
+                  )}
+                </tbody>
+              </table>
+            </div>
+          )}
+
+          <div className="flex justify-end gap-3">
+            <button
+              type="button"
+              onClick={() => setFilePreviewOpen(false)}
+              className="inline-flex items-center rounded-md border border-gray-300 px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
+            >
+              Close
+            </button>
+            <button
+              type="button"
+              onClick={handleUploadFile}
+              disabled={!uploadFile}
+              className="inline-flex items-center rounded-md border border-blue-600 bg-blue-600 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-60"
+            >
+              Upload
+            </button>
+          </div>
+        </div>
+      </CustomModal>
     </PageLayout>
   );
 };

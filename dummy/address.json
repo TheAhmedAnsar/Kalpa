@@ -1,0 +1,22 @@
+Case-31: RQ699EB1AA0ED6B4AF5C | Date: 26 Feb 2026, 13:54 | Category : TV
+
+{
+  "name": "Syedasim",
+  "address": "No 95 3Rd S",
+  "address2": "Rajakilpakkam Sela",
+  "phone": "9176694094",
+  "email": "",
+  "area": "Rajakilpakkam Sela",
+  "landmark": "NA",
+  "area_code": "600073",
+  "pincode": "600073",
+  "area_code_slug": "pincode",
+  "city": "Chennai",
+  "state": "Tamil Nadu",
+  "pos_state": "Tamil Nadu",
+  "country": "India",
+  "address_type": "Home",
+  "country_iso_code": "IN",
+  "country_phone_code": "+91"
+}
+

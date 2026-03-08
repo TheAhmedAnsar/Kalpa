@@ -1,0 +1,670 @@
+{
+  "_id": {
+    "$oid": "699eb1ab920189c8ee49de63"
+  },
+  "gid": "TR699EB1AA0EA9E67F65",
+  "fynd_platform_id": "RQ699EB1AA0ED6B4AF5C",
+  "aggregator_order_id": "Link-1672095581",
+  "app_id": "6863b1fe102c717fd18e7ba2",
+  "amount": 239900,
+  "g_user_id": "404dbb356c0f465fbeb629775a0fa0c6",
+  "payment_methods": [
+    {
+      "code": "JIOPPLINK",
+      "name": "Jio Partner Pay Link",
+      "sub_payment_mode": []
+    }
+  ],
+  "billing_address": {
+    "area": "Rajakilpakkam Sela",
+    "area_code": "600073",
+    "pincode": "600073",
+    "area_code_slug": "pincode",
+    "state": "Tamil Nadu",
+    "city": "Chennai",
+    "country": "India",
+    "name": "Syedasim Syedasim",
+    "email": "abcd@gmail.com",
+    "phone": "9176694094",
+    "address": "NA, , No95 3Rd S, , , ",
+    "address2": "undefined, undefined undefined, undefined",
+    "landmark": "NA",
+    "country_iso_code": "IN",
+    "country_phone_code": "+91",
+    "g_address_id": "None"
+  },
+  "shipping_address": {
+    "area": "Rajakilpakkam Sela",
+    "area_code": "600073",
+    "pincode": "600073",
+    "area_code_slug": "pincode",
+    "state": "Tamil Nadu",
+    "city": "Chennai",
+    "country": "India",
+    "name": "Syedasim Syedasim",
+    "email": "abcd@gmail.com",
+    "phone": "9176694094",
+    "address": "NA, , No95 3Rd S, , , ",
+    "address2": "undefined, undefined undefined, undefined",
+    "landmark": "NA",
+    "country_iso_code": "IN",
+    "country_phone_code": "+91",
+    "g_address_id": "None"
+  },
+  "currency": "INR",
+  "meta": {
+    "request": {
+      "customer_name": "Syedasim Syedasim ",
+      "customer_email": "abcd@gmail.com",
+      "app_id": "6863b1fe102c717fd18e7ba2",
+      "company_id": "1",
+      "customer_contact": "9176694094",
+      "gid": "TR699EB1AA0EA9E67F65",
+      "fynd_platform_id": "RQ699EB1AA0ED6B4AF5C",
+      "g_user_id": "404dbb356c0f465fbeb629775a0fa0c6",
+      "amount": 239900,
+      "currency": "INR",
+      "merchant_locale": "en",
+      "locale": "en",
+      "mode": "live",
+      "journey_type": "forward",
+      "payment_methods": [
+        {
+          "code": "JIOPPLINK",
+          "name": "Jio Partner Pay Link",
+          "sub_payment_mode": []
+        }
+      ],
+      "success_url": "https://resq-rcp.jiomartdigital.com/cart/order-status?success=true&status=complete&order_id=RQ699EB1AA0ED6B4AF5C&aggregator_name=JioOnePay&cart_id=699eb15f0722d5f56bdd77a2",
+      "cancel_url": "https://resq-rcp.jiomartdigital.com/cart/order-status?success=false&status=failed&order_id=RQ699EB1AA0ED6B4AF5C&aggregator_name=JioOnePay&cart_id=699eb15f0722d5f56bdd77a2",
+      "billing_address": {
+        "area": "NA",
+        "name": "Syedasim Syedasim",
+        "email": "abcd@gmail.com",
+        "phone": "9176694094",
+        "address": "NA, , No95 3Rd S, , , ",
+        "address2": "undefined, undefined undefined, undefined",
+        "landmark": "NA",
+        "country_iso_code": "IN",
+        "country_phone_code": "+91",
+        "g_address_id": "None"
+      },
+      "shipping_address": {
+        "area": "NA",
+        "name": "Syedasim Syedasim",
+        "email": "abcd@gmail.com",
+        "phone": "9176694094",
+        "address": "NA, , No95 3Rd S, , , ",
+        "address2": "undefined, undefined undefined, undefined",
+        "landmark": "NA",
+        "country_iso_code": "IN",
+        "country_phone_code": "+91",
+        "g_address_id": "None"
+      },
+      "kind": "sale",
+      "initiated_at": 1772007850,
+      "cod_eligibility": null,
+      "meta": {
+        "external_id": null,
+        "customer_details": {
+          "name": "Syedasim Syedasim",
+          "email": "itsyourasim@gmail.com",
+          "mobile": "9176694094"
+        }
+      },
+      "response_settings": {
+        "response_behaviour": "fetch",
+        "options": {
+          "request_type": "payment_link"
+        }
+      },
+      "lineItemData": {
+        "total_amount": 23990000,
+        "refund_details": [],
+        "cart_details": {
+          "total_quantity": 1,
+          "articles": [
+            {
+              "_id": "68df62129c9f15d58f2eb8a5",
+              "ean": null,
+              "meta": {
+                "sequence_number": 1
+              },
+              "tags": [],
+              "c_name": "RELIANCE RETAIL LTD",
+              "is_set": false,
+              "s_city": "Thane",
+              "weight": {
+                "unit": "gram",
+                "shipping": 1,
+                "is_default": true
+              },
+              "avl_qty": 9999991,
+              "charges": [],
+              "fragile": false,
+              "item_id": 9501301,
+              "brand_id": 462,
+              "cashback": 0,
+              "currency": {
+                "code": "INR",
+                "rate": 1
+              },
+              "discount": 9.9812382739212,
+              "group_id": "",
+              "hsn_code": null,
+              "is_valid": true,
+              "latitude": null,
+              "quantity": 1,
+              "raw_meta": {
+                "set_quantity": 1,
+                "is_set_article": false,
+                "fynd_identifier": "13039_600660079"
+              },
+              "store_id": 13039,
+              "dimension": {
+                "unit": "cm",
+                "width": 1,
+                "height": 1,
+                "length": 1,
+                "is_default": true
+              },
+              "gift_card": {
+                "gift_price": 0,
+                "display_text": "",
+                "is_gift_applied": false
+              },
+              "item_size": "OS",
+              "longitude": null,
+              "old_price": 2399,
+              "article_id": "68df62129c9f15d58f2eb8a5",
+              "company_id": 1,
+              "extra_meta": {
+                "address": {
+                  "city": "Chennai",
+                  "name": "Syedasim Syedasim",
+                  "email": "abcd@gmail.com",
+                  "state": "Tamil Nadu",
+                  "flatNo": "No95 3Rd S",
+                  "mobile": "9176694094",
+                  "plotNo": "",
+                  "sector": "",
+                  "street": "NA",
+                  "floorNo": "",
+                  "pincode": "600073",
+                  "building": "NA",
+                  "landmark": "NA",
+                  "customerID": "259093336",
+                  "societyName": ""
+                },
+                "objectId": "O1091059986",
+                "fgProduct": {
+                  "serialNo": "T-215053278",
+                  "fgArticle": "493911431",
+                  "fgArticleDesc": "TOSHIBA 43 FHD SMART LED TV 43V35MP"
+                },
+                "articleData": {
+                  "id": "600660079",
+                  "end": "2029-04-02T18:30:00.000+00:00",
+                  "uid": 9501301,
+                  "name": "2 Years - resQ Care Plan (RCP) Extended Warranty - TV from Rs.15000 to Rs.20000",
+                  "slug": "2-years-resq-care-plan-rcp-extended-warranty-tv-from-rs-15000-to-rs-20000-9501301",
+                  "image": "https://cdn.jiostore.online/v2/jmd-asp/jdprod/wrkr/products/pictures/item/free/original/resq/600660079/0/7s9mWLXNsv-RCP-TV.jpg",
+                  "start": "2027-04-03T18:30:00.000+00:00",
+                  "discount": "10% OFF",
+                  "mrpPrice": 2665,
+                  "promotion": 0,
+                  "offerPrice": 2399,
+                  "tenureInYears": 2
+                },
+                "salesOrderId": ""
+              },
+              "gst_amount": 114.24,
+              "identifier": {
+                "sku_code": "600660079"
+              },
+              "store_code": "R539",
+              "store_name": "RCP ResQ HO",
+              "store_type": "high_street",
+              "unit_price": 2399,
+              "amount_paid": 2399,
+              "bulk_margin": 0,
+              "cod_charges": 0,
+              "company_cin": null,
+              "hsn_code_id": "000000000000000000000001",
+              "_custom_json": {
+                "_display": []
+              },
+              "esp_modified": false,
+              "manufacturer": {
+                "name": "RELIANCE RETAIL LTD",
+                "address": "3RD FLOOR, COURT HOUSE, LOKMANYA TILAK MARG, None, MAHARASHTRA, MUMBAI",
+                "is_default": true
+              },
+              "mto_quantity": 0,
+              "payment_mode": "JIOPPLINK",
+              "price_marked": 2665,
+              "bulk_discount": 0,
+              "return_config": {
+                "time": 30,
+                "unit": "days",
+                "returnable": true
+              },
+              "selling_price": "price_effective",
+              "value_of_good": 2284.76,
+              "applied_promos": [],
+              "cart_item_meta": {
+                "group_id": "",
+                "primary_item": true
+              },
+              "last_update_at": "2026-02-22 10:55:30.705000",
+              "return_allowed": true,
+              "transfer_price": 0,
+              "verify_article": false,
+              "expiration_date": "9998-01-30 23:59:00",
+              "is_gift_visible": false,
+              "payment_methods": [
+                {
+                  "mode": "JIOPPLINK",
+                  "name": "Jio Partner Pay Link",
+                  "amount": 2399,
+                  "payment": "required",
+                  "payment_meta": {
+                    "merchant_code": "JIOPPLINK",
+                    "payment_gateway": "JioOnePay",
+                    "payment_identifier": "JIOPPLINK"
+                  }
+                }
+              ],
+              "price_effective": 2399,
+              "valid_inventory": true,
+              "bulk_coupon_code": null,
+              "cashback_applied": 0,
+              "delivery_charges": 0,
+              "ewaybill_enabled": false,
+              "referral_credits": 0,
+              "country_of_origin": "India",
+              "float_amount_paid": 2399,
+              "seller_identifier": "600660079",
+              "article_assignment": {
+                "level": "multi-companies",
+                "strategy": "optimal"
+              },
+              "external_mop_added": false,
+              "gst_tax_percentage": 5,
+              "cancellation_allowed": true,
+              "coupon_article_count": 0,
+              "size_level_total_qty": 1,
+              "store_serviceability": {
+                "city": "Thane",
+                "state": "Maharashtra",
+                "country": "India",
+                "pincode": "400701",
+                "address1": "RCP Tower 19A, 20th floor",
+                "address2": "RCP",
+                "lat_long": {
+                  "type": "Point",
+                  "coordinates": [
+                    73.00548174999999,
+                    19.1243359555066
+                  ]
+                },
+                "location": {
+                  "latitude": "19.1243359555066",
+                  "longitude": "73.00548174999999"
+                },
+                "country_code": "IN",
+                "country_iso_code": "IN"
+              },
+              "article_assign_status": true,
+              "quantity_assign_status": false,
+              "promotion_article_count": 0,
+              "external_mop_total_value": 0,
+              "original_price_effective": 2399,
+              "coupon_effective_discount": 0,
+              "promotion_effective_discount": 0
+            }
+          ],
+          "cart_value": 239900,
+          "items": {
+            "9501301": {
+              "_id": "68df5fa39f527d20fb76a55e",
+              "moq": {
+                "minimum": 1
+              },
+              "uid": 9501301,
+              "name": "2 Years - resQ Care Plan (RCP) Extended Warranty - TV from Rs.15000 to Rs.20000",
+              "slug": "2-years-resq-care-plan-rcp-extended-warranty-tv-from-rs-15000-to-rs-20000-9501301",
+              "tags": [
+                "RD_HD",
+                "RD"
+              ],
+              "brand": "resQ",
+              "price": {
+                "marked": {
+                  "max": 2666,
+                  "min": 2665
+                },
+                "currency": "INR",
+                "effective": {
+                  "max": 2399,
+                  "min": 2399
+                }
+              },
+              "sizes": [
+                "OS"
+              ],
+              "errors": {
+                "type": null,
+                "value": null,
+                "message": null
+              },
+              "images": [
+                "/products/pictures/item/free/original/resq/600660079/0/dLV1pkitFP-RCP-TV.jpg"
+              ],
+              "genders": null,
+              "item_id": 9501301,
+              "discount": 11,
+              "hsn_code": null,
+              "is_valid": true,
+              "quantity": 10329960,
+              "store_id": 13039,
+              "all_sizes": {
+                "OS": true
+              },
+              "brand_uid": 462,
+              "is_active": null,
+              "item_code": "600660079",
+              "item_size": "OS",
+              "item_type": "digital",
+              "store_ids": [
+                11048,
+                11081,
+                11043,
+                12765,
+                11644,
+                11052,
+                11088,
+                6605,
+                11047,
+                11045,
+                11083,
+                6622,
+                6620,
+                11042,
+                12761,
+                11054,
+                11044,
+                11080,
+                9977,
+                11111,
+                11049,
+                6604,
+                11089,
+                13327,
+                6611,
+                11082,
+                6609,
+                11084,
+                11053,
+                11046,
+                13039,
+                11055,
+                6607,
+                11091,
+                6614
+              ],
+              "attributes": {
+                "keywords": "Warranty plan, extended warranty, device protection plan, appliance protection plan, resq, rescue, resque, RCP",
+                "sku-type": "Regular RCP",
+                "to-price": 20000,
+                "sku-title": "2 Years - resQ Care Plan (RCP) Extended Warranty - TV from Rs.15000 to Rs.20000",
+                "brand_name": "resQ",
+                "exclusions": "<p><li>Defects arising due to product misuse by customer</li>\n<li>Product body damage / physical damage or damage through rust</li>\n<li>Consumables which are not mentioned</li>\n<li>Product re-installation</li>\n<li>Product malfunction due to unauthorized service or water seepage</li>\n<li>Product Serial number tempered or removed</li>\n<li>Does not cover aesthetic defects, if it doesn’t affect the functionality of the product</li>\n<li>Accessories: as 3D Glasses, Antenna, Head Phone, Cables, Wall Mount Bracket</p>",
+                "from-price": 15000,
+                "key-features": "<li>RCP (resQ Care Plans) presently can only be availed for purchases made at Reliance Retail network; either Online or from our Stores - subject to T & C<li>Extended Warranty will activate only after expiry of Brand/manufacturer Warranty.<li>365 days Support from 10am till 10pm \n<li>Covers TV Panel, PCB, Speakers, LVDS Cable & many other electrical parts\n<li>Complementary Preventive Maintenance Service for Television Set’s Health Check\n<li>Repairs of malfunction/ defect/ breakdown",
+                "sub-cat-type": [],
+                "tenure-in-years": 2,
+                "visits-per-year": "As Per Customer Request ( Based on brand Warranty policy )",
+                "service-location": "<p>At customer’s place</p>",
+                "nature-of-service": "Extended Warranty",
+                "fg-product-category": "TV"
+              },
+              "branch_url": null,
+              "company_id": 1,
+              "multi_size": false,
+              "collections": null,
+              "company_ids": [
+                1
+              ],
+              "departments": [
+                1
+              ],
+              "hsn_code_id": null,
+              "no_of_boxes": 1,
+              "_custom_json": {
+                "cod": false,
+                "ean": [
+                  "600660079"
+                ],
+                "faqs": "",
+                "name": "2 Years - resQ Care Plan (RCP) Extended Warranty - TV from Rs.15000 to Rs.20000",
+                "type": "SERV",
+                "Status": "UNAPPROVED",
+                "hazmat": false,
+                "status": "APPROVED",
+                "hd_flag": true,
+                "support": "",
+                "multi_box": false,
+                "prod_type": false,
+                "site_code": "R160",
+                "brick_code": "630302006",
+                "searchable": false,
+                "serialized": false,
+                "advertisable": false,
+                "back_to_back": false,
+                "pay_at_store": false,
+                "promotion_id": null,
+                "service_type": "WARRANTY",
+                "transactable": true,
+                "delivery-type": "home delivery",
+                "hsn_sac_code ": 998716,
+                "imei_required": false,
+                "max_lsp_price": null,
+                "max_order_qty": null,
+                "package_count": "0",
+                "pick_at_store": false,
+                "custom_label_0": null,
+                "free_shippable": false,
+                "header_product": null,
+                "product_family": "HOME VISUAL SERVICE",
+                "ship_from_store": false,
+                "exchange_enabled": null,
+                "replacement_flag": null,
+                "brick_description": "EW 2Y INS TV 15k to 20k   ",
+                "mode_of_transport": "SURFACE",
+                "package_dimension": {
+                  "width": 0.1,
+                  "height": 0.1,
+                  "length": 0.1,
+                  "weight": 1,
+                  "width_uom": "cm",
+                  "height_uom": "cm",
+                  "length_uom": "cm",
+                  "weight_uom": "GRM"
+                },
+                "pre_order_enabled": false,
+                "pre_order_message": null,
+                "giftwrap_available": false,
+                "pre_order_end_date": null,
+                "Product Dead Weight": 1,
+                "max_exchange_amount": null,
+                "target_message_text": null,
+                "master_category_code": "10104910",
+                "pre_order_start_date": null,
+                "total_serial_numbers": "0",
+                "bajaj_finserv_enabled": false,
+                "installation_required": false,
+                "pre_order_launch_date": null,
+                "max_exchange_percentage": null,
+                "pre_order_dispatch_date": null,
+                "return_pickup_available": false,
+                "strategic_business_unit": "600660079",
+                "target_message_end_date": null,
+                "manufacturer_part_number": "600660079",
+                "target_message_start_date": null,
+                "pre_order_price_visibility": false,
+                "target_message_invoice_text": null,
+                "percentage_for_loyalty_points": "0",
+                "jio_device_imeivalidation_required": false
+              },
+              "custom_order": {
+                "is_custom_order": false,
+                "manufacturing_time": 0,
+                "manufacturing_time_unit": "days"
+              },
+              "image_nature": "standard",
+              "is_dependent": false,
+              "price_marked": 2665,
+              "all_store_ids": [
+                13327,
+                11042,
+                11043,
+                11044,
+                11045,
+                11046,
+                11047,
+                11048,
+                11049,
+                11052,
+                11053,
+                11054,
+                11055,
+                11080,
+                11081,
+                11082,
+                11083,
+                6604,
+                6605,
+                11084,
+                6607,
+                11088,
+                11089,
+                6609,
+                6611,
+                11091,
+                6614,
+                12761,
+                6620,
+                12765,
+                6622,
+                11111,
+                13039,
+                9977,
+                11644
+              ],
+              "l1_categories": [
+                123
+              ],
+              "l2_categories": [
+                303
+              ],
+              "l3_categories": [
+                262
+              ],
+              "product_ean_id": null,
+              "all_company_ids": [
+                1
+              ],
+              "available_sizes": [
+                "OS"
+              ],
+              "price_effective": 2399,
+              "application_item": {
+                "_id": "68df6214314eac6fcc3c53ad",
+                "zones": [
+                  "_all_"
+                ],
+                "app_id": "6863b1fe102c717fd18e7ba2",
+                "item_id": 9501301,
+                "company_id": 1
+              },
+              "multi_categories": [
+                {
+                  "l1": 123,
+                  "l2": 303,
+                  "l3": 262,
+                  "is_active": true,
+                  "department": 1
+                }
+              ],
+              "category_metadata": {
+                "uid": 262,
+                "logo": "/jioretailer/category/pictures/square-logo/original/_vmWuuoLPX-R96nKMOGb-Disclaimer.jpeg",
+                "name": "Extended Warranty",
+                "slug": "extended-warranty",
+                "banners": [
+                  {
+                    "department": 1,
+                    "portrait_url": "/jioretailer/category/pictures/portrait-banner/original/_8zT9DtSLs-5vbWha5jk-Portrait-Banner.jpeg",
+                    "landscape_url": "/jioretailer/category/pictures/landscape-banner/original/gGjSM_cLJq-dWuXKTJ1s-Landsacpe-Banner.jpeg"
+                  }
+                ],
+                "priority": 123,
+                "specification": [],
+                "display_priority": 123
+              },
+              "product_group_tag": [],
+              "category_department": [
+                1
+              ],
+              "item_size_level_qty": {
+                "OS": 1
+              },
+              "product_online_date": "2026-02-25 06:54:35.019000",
+              "webstore_product_url": null
+            }
+          }
+        },
+        "gid": "TR699EB1AA0EA9E67F65",
+        "payment_details": {
+          "cancel_url": "https://resq-rcp.jiomartdigital.com/cart/order-status?cart_id=32497756&order_id=TR699EB1AA0EA9E67F65&success=false&address_id=None",
+          "payment_id": null,
+          "gid": "TR699EB1AA0EA9E67F65",
+          "locale": "en",
+          "aggregator_order_id": "RQ699EB1AA0ED6B4AF5C",
+          "status": "started",
+          "success_url": "https://resq-rcp.jiomartdigital.com/cart/order-status?cart_id=32497756&order_id=TR699EB1AA0EA9E67F65&success=true&status=complete&address_id=None",
+          "g_user_id": "404dbb356c0f465fbeb629775a0fa0c6",
+          "merchant_locale": "en",
+          "mode": "live",
+          "payment_methods": [
+            {
+              "code": "JIOPPLINK",
+              "name": "Jio Partner Pay Link",
+              "sub_payment_mode": []
+            }
+          ],
+          "created": "1772007851",
+          "aggregator_customer_id": "404dbb356c0f465fbeb629775a0fa0c6",
+          "captured": true,
+          "kind": "sale",
+          "amount": 239900,
+          "currency": "INR",
+          "amount_captured": 239900
+        },
+        "currency": "INR",
+        "status": "started"
+      }
+    },
+    "success_url": "https://resq-rcp.jiomartdigital.com/c/payment-confirmation?success=true&status=complete&order_id=RQ699EB1AA0ED6B4AF5C&gid=TR699EB1AA0EA9E67F65&aggregator_name=jioonepay",
+    "cancel_url": "https://resq-rcp.jiomartdigital.com/c/payment-confirmation?success=false&status=failed&order_id=RQ699EB1AA0ED6B4AF5C&gid=TR699EB1AA0EA9E67F65&aggregator_name=jioonepay"
+  },
+  "locale": "en",
+  "createdAt": {
+    "$date": "2026-02-25T08:24:11.131Z"
+  },
+  "updatedAt": {
+    "$date": "2026-02-25T08:24:11.131Z"
+  },
+  "__v": 0
+}

@@ -20,6 +20,7 @@ import Configuration from "../projects/jiomart_digital/pages/Configuration";
 import WeAreWorking from "../projects/jiomart_digital/pages/WeAreWorking";
 import EdcDevice from "../projects/jiomart_digital/pages/edc_device";
 import UpdateUserType from "../projects/jiomart_digital/pages/update_user_type";
+import JmdOfficerUpdate from "../projects/jiomart_digital/pages/jmd_officer_update";
 import GTDeletion from "../projects/jiomart_digital/pages/gt_deletion";
 import WMSHome from "../projects/wms/pages/WMSHome";
 import WMSUsers from "../projects/wms/pages/WMSUsers";
@@ -237,6 +238,11 @@ const PROJECT_FEATURES = {
           element: <GTDeletion />,
           projects: ["jiomart_digital"],
         },
+        {
+          path: "/jmd-officer-update",
+          element: <JmdOfficerUpdate />,
+          projects: ["jiomart_digital"],
+        },
       ],
       menuItems: [],
       sections: [
@@ -252,6 +258,7 @@ const PROJECT_FEATURES = {
             { name: "Mobile Update", path: "/mobile-update" },
             { name: "EDC Device", path: "/edc-device" },
             { name: "GT Deletion", path: "/gt-deletion" },
+            { name: "JMD Officer", path: "/jmd-officer-update" },
             // {name:"mobile update", path:"/mobile-update"}
           ],
           dividerBefore: true,
