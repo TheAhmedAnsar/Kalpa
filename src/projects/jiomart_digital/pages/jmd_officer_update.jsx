@@ -319,6 +319,29 @@ const collectRowFailureReasons = (payload) => {
     });
 };
 
+const normalizeOfficerUploadRows = (payload, fallbackRows = []) => {
+  const rows = Array.isArray(payload?.data) ? payload.data : [];
+  if (!rows.length) {
+    return fallbackRows.map((row, index) => ({
+      id: `${getValueByHeaderAliases(row, ["employeeId", "employee_id"]) || "row"}-${index}`,
+      employee_id: String(
+        getValueByHeaderAliases(row, ["employeeId", "employee_id"]) || "—",
+      ),
+      success: false,
+      reason: extractApiMessage(payload) || "No response rows returned",
+    }));
+  }
+
+  return rows.map((row, index) => ({
+    id: `${row?.employee_id || row?.employeeId || row?.id || "row"}-${index}`,
+    employee_id: String(
+      row?.employee_id || row?.employeeId || row?.id || "—",
+    ),
+    success: row?.success === true,
+    reason: String(row?.reason || row?.message || row?.error || "—"),
+  }));
+};
+
 const JmdOfficerUpdate = () => {
   console.log("JmdOfficerUpdate component loaded");
   const [fileType, setFileType] = useState(FILE_TYPE_OPTIONS[0]);
@@ -347,6 +370,7 @@ const JmdOfficerUpdate = () => {
   const [uploadingFile, setUploadingFile] = useState(false);
   const [uploadMessage, setUploadMessage] = useState("");
   const [uploadProgress, setUploadProgress] = useState(0);
+  const [uploadResponseRows, setUploadResponseRows] = useState([]);
 
   const fetchHistory = useCallback(async () => {
     setHistoryLoading(true);
@@ -363,6 +387,7 @@ const JmdOfficerUpdate = () => {
     setUploadingFile(false);
     setUploadMessage("");
     setUploadProgress(0);
+    setUploadResponseRows([]);
   };
 
   const historyColumns = useMemo(
@@ -552,6 +577,7 @@ const JmdOfficerUpdate = () => {
     setUploadingFile(true);
     setUploadProgress(5);
     setUploadMessage("");
+    setUploadResponseRows([]);
     let progressTimer = null;
     progressTimer = setInterval(() => {
       setUploadProgress((prev) => (prev >= 90 ? prev : prev + 3));
@@ -575,6 +601,7 @@ const JmdOfficerUpdate = () => {
       setUploadProgress(100);
 
       const responseData = response?.data || {};
+      setUploadResponseRows(normalizeOfficerUploadRows(responseData, filePreviewRows));
       const apiMessage = extractApiMessage(responseData);
       const rowFailures = collectRowFailureReasons(responseData);
       const hasExplicitFailure = responseData?.success === false;
@@ -599,6 +626,7 @@ const JmdOfficerUpdate = () => {
       if (progressTimer) clearInterval(progressTimer);
       setUploadProgress(0);
       const errorPayload = error?.response?.data;
+      setUploadResponseRows(normalizeOfficerUploadRows(errorPayload || {}, filePreviewRows));
       const apiMessage = extractApiMessage(errorPayload);
       const rowFailures = collectRowFailureReasons(errorPayload);
       const reasonPreview = rowFailures.slice(0, 3).join(" | ");
@@ -691,6 +719,26 @@ const JmdOfficerUpdate = () => {
     const link = document.createElement("a");
     link.href = url;
     link.download = "jmd-officer-details.csv";
+    link.click();
+    URL.revokeObjectURL(url);
+  };
+
+  const handleDownloadUploadResults = () => {
+    const headers = ["employee_id", "success", "reason"];
+    const rows = uploadResponseRows.map((row) =>
+      headers.map((header) => row[header] ?? ""),
+    );
+    const csvLines = [
+      headers.join(","),
+      ...rows.map((row) => row.map((cell) => `"${String(cell)}"`).join(",")),
+    ];
+    const blob = new Blob([`${csvLines.join("\n")}\n`], {
+      type: "text/csv;charset=utf-8;",
+    });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = "jmd-officer-upload-results.csv";
     link.click();
     URL.revokeObjectURL(url);
   };
@@ -795,7 +843,7 @@ const JmdOfficerUpdate = () => {
               />
             </label>
             {uploadFile && (
-              <div className="mt-2 w-full space-y-2">
+              <div className="mt-2 flex w-full flex-col items-center space-y-2 text-center">
                 <p className="text-xs text-gray-500 dark:text-gray-400">
                   {uploadFile.name}
                 </p>
@@ -807,18 +855,24 @@ const JmdOfficerUpdate = () => {
                 {fileValidation.checked ? (
                   <div className="flex w-full justify-center">
                     <div
-                      className={`inline-flex items-center gap-1 rounded px-2 py-1 text-[11px] text-center ${
+                      className={`inline-flex max-w-full items-start gap-2 rounded px-3 py-2 text-left text-[11px] leading-snug ${
                         fileValidation.isValid
                           ? "bg-emerald-50 text-emerald-700 dark:bg-emerald-900/20 dark:text-emerald-300"
                           : "bg-red-50 text-red-700 dark:bg-red-900/20 dark:text-red-300"
                       }`}
                     >
                       {fileValidation.isValid ? (
-                        <CheckCircleOutlineIcon sx={{ fontSize: 14 }} />
+                        <CheckCircleOutlineIcon
+                          sx={{ fontSize: 14 }}
+                          className="mt-0.5 shrink-0"
+                        />
                       ) : (
-                        <ErrorOutlineIcon sx={{ fontSize: 14 }} />
+                        <ErrorOutlineIcon
+                          sx={{ fontSize: 14 }}
+                          className="mt-0.5 shrink-0"
+                        />
                       )}
-                      {fileValidation.message}
+                      <span className="break-words">{fileValidation.message}</span>
                     </div>
                   </div>
                 ) : null}
@@ -1098,8 +1152,58 @@ const JmdOfficerUpdate = () => {
             </table>
           </div>
 
-          {uploadMessage ? (
+          {uploadMessage && uploadResponseRows.length === 0 ? (
             <p className="text-xs font-medium text-gray-600">{uploadMessage}</p>
+          ) : null}
+          {uploadResponseRows.length > 0 ? (
+            <div className="space-y-3">
+              <div className="flex justify-end">
+                <button
+                  type="button"
+                  onClick={handleDownloadUploadResults}
+                  className="inline-flex items-center gap-2 rounded-md border border-gray-300 px-3 py-2 text-xs font-semibold text-gray-700 hover:border-blue-500 hover:text-blue-600"
+                >
+                  <DownloadOutlinedIcon fontSize="small" />
+                  Download Results
+                </button>
+              </div>
+              <div className="max-h-44 overflow-auto rounded-lg border border-gray-200">
+                <table className="min-w-full border-collapse text-left text-sm">
+                  <thead className="sticky top-0 bg-gray-100">
+                    <tr>
+                      <th className="border-b border-gray-200 px-4 py-2 font-semibold text-gray-700">
+                        employee_id
+                      </th>
+                      <th className="border-b border-gray-200 px-4 py-2 font-semibold text-gray-700">
+                        success
+                      </th>
+                      <th className="border-b border-gray-200 px-4 py-2 font-semibold text-gray-700">
+                        reason
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {uploadResponseRows.map((row) => (
+                      <tr key={row.id}>
+                        <td className="border-b border-gray-100 px-4 py-2 text-gray-700">
+                          {row.employee_id}
+                        </td>
+                        <td
+                          className={`border-b border-gray-100 px-4 py-2 font-semibold ${
+                            row.success ? "text-emerald-700" : "text-red-700"
+                          }`}
+                        >
+                          {String(row.success)}
+                        </td>
+                        <td className="border-b border-gray-100 px-4 py-2 text-gray-700">
+                          {row.reason}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
           ) : null}
           {(uploadingFile || uploadProgress > 0) && (
             <div className="space-y-1">

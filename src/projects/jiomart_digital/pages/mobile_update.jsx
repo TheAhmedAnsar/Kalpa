@@ -244,9 +244,11 @@ const MobileUpdate = () => {
               />
             </label>
             {uploadFile && (
-              <p className="mt-2 text-xs text-gray-500 dark:text-gray-400">
-                Selected: {uploadFile.name}
-              </p>
+              <div className="mt-2 flex w-full flex-col items-center text-center">
+                <p className="text-xs text-gray-500 dark:text-gray-400">
+                  Selected: {uploadFile.name}
+                </p>
+              </div>
             )}
           </div>
         </div>

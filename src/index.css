@@ -95,6 +95,7 @@ html[data-theme="dark"] {
 body {
   font-family: "Poppins", sans-serif;
 }
+
 @layer base {
   ::-webkit-scrollbar {
     width: 8px;
